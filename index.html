@@ -1,0 +1,764 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-token" content="4NoBsnAO4DVktzrpJDr5KwNOmT34U47ykean8qUk" />
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">	
+	<link rel="stylesheet" href="style.css">	
+		<title>Character Sheet</title>
+</head>
+<body>	
+
+<div class="container">
+	<section>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="field-entry">
+							<label>Character Name</label>
+							<h1 spellcheck='false' id='name' class='holds-content' contenteditable><br></h1>
+						</div>		
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-md-6">
+						<div class="field-entry">
+							<label>Race</label>					
+							<select id="race">						
+								<option value="Dragonborn">Dragonborn</option>
+								<option value="Dwarf">Dwarf</option>
+								<option value="Elf">Elf</option>
+								<option value="Gnome">Gnome</option>
+								<option value="Half-Elf">Half-Elf</option>
+								<option value="Half-Orc">Half-Orc</option>
+								<option value="Halfling">Halfling</option>
+								<option value="Human">Human</option>
+								<option value="Tiefling">Tiefling</option>						
+							</select>
+						</div>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<div class="field-entry">
+							<label>Class &amp; Level</label>
+							<select id="class_and_level">
+								<option value="Barbarian">Barbarian</option>
+								<option value="Bard">Bard</option>
+								<option value="Cleric">Cleric</option>
+								<option value="Druid">Druid</option>
+								<option value="Fighter">Fighter</option>
+								<option value="Monk">Monk</option>
+								<option value="Paladin">Paladin</option>
+								<option value="Ranger">Ranger</option>
+								<option value="Rogue">Rogue</option>
+								<option value="Sorcerer">Sorcerer</option>
+								<option value="Warlock">Warlock</option>
+								<option value="Wizard">Wizard</option>
+							</select>					
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-8">		
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="field-entry">
+							<label>Racial Traits</label>
+							<div class="row">
+								<div class="col-sm-12">
+									<p class="holds-content" contenteditable id="racial_traits"><br><br><br><br><br><br></p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6">
+						<div class="field-entry">
+							<label>Class Features and Traits, Feats</label>
+							<div class="row">
+								<div class="col-sm-12">
+									<p class="holds-content" contenteditable id="class_features"><br><br><br><br><br><br></p>
+								</div>
+							</div>
+						</div>
+					</div>			
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<div class="col-xs-5">
+	<div class="attribute-wrapper circle-wrapper">
+		<div class="field-entry">
+			<label class='text-center'>STR</label>
+			<h1 data-attribute='str' id='attribute__str' class='attribute_value text-center holds-content' contenteditable><br></h1>
+		</div>
+		<div class='attribute-mod__wrapper'>
+			<div class="attribute-mod__wrapper__inner">
+				<span class='attribute-mod__value' id='attribute-mod-value__str'>0</span>
+			</div>
+		</div>
+	</div>
+	<div class="attribute-wrapper circle-wrapper">
+		<div class="field-entry">
+			<label class='text-center'>DEX</label>
+			<h1 data-attribute='dex' id='attribute__dex' class='attribute_value text-center holds-content' contenteditable><br></h1>
+		</div>
+		<div class='attribute-mod__wrapper'>
+			<div class="attribute-mod__wrapper__inner">
+				<span class='attribute-mod__value' id='attribute-mod-value__dex'>0</span>
+			</div>
+		</div>
+	</div>
+	<div class="attribute-wrapper circle-wrapper">
+		<div class="field-entry">
+			<label class='text-center'>CON</label>
+			<h1 data-attribute='con' id='attribute__con' class='attribute_value text-center holds-content' contenteditable><br></h1>
+		</div>
+		<div class='attribute-mod__wrapper'>
+			<div class="attribute-mod__wrapper__inner">
+				<span class='attribute-mod__value' id='attribute-mod-value__con'>0</span>
+			</div>
+		</div>
+	</div>
+	<div class="attribute-wrapper circle-wrapper">
+		<div class="field-entry">
+			<label class='text-center'>INT</label>
+			<h1 data-attribute='int' id='attribute__int' class='attribute_value text-center holds-content' contenteditable><br></h1>
+		</div>
+		<div class='attribute-mod__wrapper'>
+			<div class="attribute-mod__wrapper__inner">
+				<span class='attribute-mod__value' id='attribute-mod-value__int'>0</span>
+			</div>
+		</div>
+	</div>
+	<div class="attribute-wrapper circle-wrapper">
+		<div class="field-entry">
+			<label class='text-center'>WIS</label>
+			<h1 data-attribute='wis' id='attribute__wis' class='attribute_value text-center holds-content' contenteditable><br></h1>
+		</div>
+		<div class='attribute-mod__wrapper'>
+			<div class="attribute-mod__wrapper__inner">
+				<span class='attribute-mod__value' id='attribute-mod-value__wis'>0</span>
+			</div>
+		</div>
+	</div>
+	<div class="attribute-wrapper circle-wrapper">
+		<div class="field-entry">
+			<label class='text-center'>CHA</label>
+			<h1 data-attribute='cha' id='attribute__cha' class='attribute_value text-center holds-content' contenteditable><br></h1>
+		</div>
+		<div class='attribute-mod__wrapper'>
+			<div class="attribute-mod__wrapper__inner">
+				<span class='attribute-mod__value' id='attribute-mod-value__cha'>0</span>
+			</div>
+		</div>
+	</div>
+	<br>
+</div>
+<div class="col-xs-7">	
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="field-entry">
+				<label class='text-center'>Proficiency Bonus</label>
+				<h2 id='proficiency' class='holds-content text-center' contenteditable><br></h2>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="list-wrapper">
+			<label>Saving Throw Proficiencies</label>
+				
+				<ul>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input id='saving_throw_str' type="checkbox">
+							<label class='clickable' for='saving_throw_str'>Strength</label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='saving_throw_dex' type="checkbox">
+							<label class='clickable' for='saving_throw_dex'>Dexterity</label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='saving_throw_con' type="checkbox">
+							<label class='clickable' for='saving_throw_con'>Constitution</label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='saving_throw_int' type="checkbox">
+							<label class='clickable' for='saving_throw_int'>Intelligence</label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='saving_throw_wis' type="checkbox">
+							<label class='clickable' for='saving_throw_wis'>Wisdom</label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='saving_throw_cha' type="checkbox">
+							<label class='clickable' for='saving_throw_cha'>Charisma</label>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="list-wrapper">
+			<label>Skill Proficiencies</label>
+				<ul>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Acrobatics' type="checkbox">
+							<label class='clickable' for='skill_Acrobatics'>Acrobatics <span class='mini-label'>(Dex)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Animal' type="checkbox">
+							<label class='clickable' for='skill_Animal'>Animal Handling <span class='mini-label'>(Wis)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Arcana' type="checkbox">
+							<label class='clickable' for='skill_Arcana'>Arcana <span class='mini-label'>(Int)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Athletics' type="checkbox">
+							<label class='clickable' for='skill_Athletics'>Athletics <span class='mini-label'>(Str)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Deception' type="checkbox">
+							<label class='clickable' for='skill_Deception'>Deception <span class='mini-label'>(Cha)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_History' type="checkbox">
+							<label class='clickable' for='skill_History'>History <span class='mini-label'>(Int)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Insight' type="checkbox">
+							<label class='clickable' for='skill_Insight'>Insight <span class='mini-label'>(Wis)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Intimidation' type="checkbox">
+							<label class='clickable' for='skill_Intimidation'>Intimidation <span class='mini-label'>(Cha)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Investigation' type="checkbox">
+							<label class='clickable' for='skill_Investigation'>Investigation <span class='mini-label'>(Int)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Medicine' type="checkbox">
+							<label class='clickable' for='skill_Medicine'>Medicine <span class='mini-label'>(Wis)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Nature' type="checkbox">
+							<label class='clickable' for='skill_Nature'>Nature <span class='mini-label'>(Int)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Perception' type="checkbox">
+							<label class='clickable' for='skill_Perception'>Perception <span class='mini-label'>(Wis)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Performance' type="checkbox">
+							<label class='clickable' for='skill_Performance'>Performance <span class='mini-label'>(Cha)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Persuasion' type="checkbox">
+							<label class='clickable' for='skill_Persuasion'>Persuasion <span class='mini-label'>(Cha)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Religion' type="checkbox">
+							<label class='clickable' for='skill_Religion'>Religion <span class='mini-label'>(Int)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Sleight' type="checkbox">
+							<label class='clickable' for='skill_Sleight'>Sleight of Hand <span class='mini-label'>(Dex)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Stealth' type="checkbox">
+							<label class='clickable' for='skill_Stealth'>Stealth <span class='mini-label'>(Dex)</span></label>
+						</div>
+					</li>
+					<li>
+						<div class="checkbox checkbox-danger">
+							<input class='holds-content' id='skill_Survival' type="checkbox">
+							<label class='clickable' for='skill_Survival'>Survival <span class='mini-label'>(Wis)</span></label>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<div class="row">
+	<div class="col-xs-4">
+		<div class="field-entry">
+			<label class='text-center'>AC</label>
+			<h3 id='ac' class='holds-content text-center' contenteditable><br></h3>
+		</div>
+	</div>
+	<div class="col-xs-4">
+		<div class="field-entry">
+			<label class='text-center'>Initiative</label>
+			<h3 id='initiative' class='holds-content text-center' contenteditable><br></h3>
+		</div>
+	</div>
+	<div class="col-xs-4">
+		<div class="field-entry">
+			<label class='text-center'>Speed</label>
+			<h3 id='speed' class='holds-content text-center' contenteditable><br></h3>
+		</div>
+	</div>
+</div>
+				<div class="row">
+	<div class="col-xs-6">
+		<div class="field-entry">
+			<label>Current HP</label>
+			<h1 id='current_hp' class='holds-content' contenteditable><br></h1>
+		</div>
+	</div>
+	<div class="col-xs-6">
+		<div class="field-entry">
+			<label>Temporary HP</label>
+			<h1 id='temporary_hp' class='holds-content' contenteditable><br></h1>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<div class="field-entry">
+			<label>Hit Dice</label>
+			<p id='hit_dice_1'class='holds-content' contenteditable><br><br></p>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<div class="field-entry">
+			<label>Death Saves</label>
+			<p id='death_saves_1' class='holds-content' contenteditable><br><br></p>
+		</div>
+	</div>
+	<div class="col-xs-12">
+		<div class="field-entry">
+			<label>Attacks &amp; Spells</label>
+			<div class="holds-content" id="attacks_and_spells1" contenteditable><br><br><br><br><br><br></div>
+		</div>
+		<div class="field-entry">
+			<label>Equipment</label>
+			<div class="holds-content" id="equipment" contenteditable><br><br><br><br><br><br><br><br><br><br></div>
+			<div class="row">
+				<div class="col-xs-6 col-sm-2 col-sm-push-1">
+					<label class='text-center'>CP</label>
+					<p contenteditable class='text-center holds-content'><br></p>
+				</div>
+				<div class="col-xs-6 col-sm-2 col-sm-push-1">
+					<label class='text-center'>SP</label>
+					<p contenteditable class='text-center holds-content'><br></p>
+				</div>
+				<div class="col-xs-6 col-sm-2 col-sm-push-1">
+					<label class='text-center'>EP</label>
+					<p contenteditable class='text-center holds-content'><br></p>
+				</div>
+				<div class="col-xs-6 col-sm-2 col-sm-push-1">
+					<label class='text-center'>GP</label>
+					<p contenteditable class='text-center holds-content'><br></p>
+				</div>
+				<div class="col-xs-6 col-sm-2 col-sm-push-1">
+					<label class='text-center'>PP</label>
+					<p contenteditable class='text-center holds-content'><br></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="col-xs-12 col-sm-4">
+	<div class="field-entry">
+	<label>Personality Traits, Ideals, Bonds and Flaws</label>
+	<p class="holds-content" contenteditable id="personality_traits_1"><br><br><br><br><br></p>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-sm-4">
+		<div class="field-entry">
+			<label>Age</label>
+			<div class="holds-content" id="age" contenteditable><br></div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-4">
+		<div class="field-entry">
+			<label>Eyes</label>
+			<div class="holds-content" id="eyes" contenteditable><br></div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-4">
+		<div class="field-entry">
+			<label>Height</label>
+			<div class="holds-content" id="height" contenteditable><br></div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-sm-4">
+		<div class="field-entry">
+			<label>Skin</label>
+			<div class="holds-content" id="skin" contenteditable><br></div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-4">
+		<div class="field-entry">
+			<label>Weight</label>
+			<div class="holds-content" id="weight" contenteditable><br></div>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-4">
+		<div class="field-entry">
+			<label>Hair</label>
+			<div class="holds-content" id="hair" contenteditable><br></div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		
+	</section>
+</div>
+
+<div class="container">
+	<section>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="field-entry">
+	<label>Appearence</label>
+	<div class="holds-content" id="appearence" contenteditable><br><br><br><br><br></div>
+</div>
+<div class="field-entry">
+	<label>Detailed Background</label>
+	<div class="holds-content" id="background-detail" contenteditable><br><br><br><br><br></div>
+</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="field-entry">
+	<label>Alliances &amp; Organisations</label>
+	<div class="holds-content" id="allies_and_organisation" contenteditable><br><br><br><br><br></div>
+</div>
+<div class="field-entry">
+	<label>Additional Features, Traits, Misc.</label>
+	<div class="holds-content" id="additional_stuff" contenteditable><br><br><br><br><br></div>
+</div>
+			</div>
+			<div class="col-sm-4">
+				<div class="field-entry">
+	<label>Treasure, Artifacts, Items of Note, Etc.</label>
+	<div class="holds-content" id="treasure" contenteditable><br><br><br><br><br><br><br><br><br><br><br><br></div>
+</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<div class="container">
+	<section>
+		
+		<div class="row">
+	<div class="col-xs-12 col-sm-6">
+		<div class="field-entry">
+			<label>Spellcasting Class</label>
+			<h2 contenteditable class="holds-content"></h2>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-6">
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				<div class="field-entry">
+					<label class='text-center'>Spellcasting Ability</label>
+					<h2 contenteditable class="text-center holds-content"></h2>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<div class="field-entry">
+					<label class='text-center'>Spell Save DC</label>
+					<h2 contenteditable class="text-center holds-content"></h2>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<div class="field-entry">
+					<label class='text-center'>Spell Attack Bonus</label>
+					<h2 contenteditable class="text-center holds-content"></h2>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+		
+		<div class="row">
+			<div class="col-xs-12 col-sm-4">
+				
+				<div class="spell-column-header">
+					
+					<div class="field-entry">
+						<div class="row">
+							<div class="col-xs-1">
+								<h3>0</h3>
+							</div>
+							<div class="col-xs-11">
+								<h3>Cantrips</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12">
+								<div contenteditable class="holds-content"><br><br><br><br><br></div>
+							</div>
+						</div>
+					</div>
+					
+					<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>1</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_1' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_1' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_1'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+					
+					<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>2</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_2' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_2' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_2'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+					
+					<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>3</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_3' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_3' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_3'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+					
+				</div>
+				
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>4</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_4' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_4' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_4'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+				<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>5</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_5' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_5' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_5'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+				<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>6</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_6' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_6' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_6'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>7</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_7' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_7' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_7'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+				<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>8</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_8' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_8' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_8'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+				<div class="field-entry">
+	<div class="row">
+		<div class="col-xs-1">
+			<h3>9</h3>
+		</div>
+		<div class="col-xs-5">
+			<label class='text-center'>Slots Total</label>
+			<h3 id='spell_slots_total_9' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+		<div class="col-xs-6">
+			<label class='text-center'>Slots Expanded</label>
+			<h3 id='spell_slots_expanded_9' contenteditable class='text-center holds-content'><br></h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div id='spell_text_9'contenteditable class="holds-content"><br><br><br><br><br><br></div>
+		</div>
+	</div>
+</div>
+			</div>
+		</div>
+		
+	</section>
+</div>
+	<div class="container container__footer">
+		<div class="row">
+			<div class="col-xs-12">				
+				<a target='_blank' href="http://thomascgray.github.io/">Made by Tom</a>
+			</div>
+		</div>
+	</div>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="code.js"></script>
+	<script src="class_definitions.js"></script>
+	<script src="race_definitions.js"></script>
+	</body>
+</html>
