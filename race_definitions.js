@@ -2,38 +2,42 @@ $(window).ready(function() {
 	$('#race').on('change', function() {
 		var chosenRace = $('#race').val();
 		
-		switch (chosenRace) {
-			case 'Dwarf' :
-				$('#racial_traits').html(dwarfRacialTraits);
-				break;
-			case 'Elf' :
-				$('#racial_traits').html(elfRacialTraits);
-				break;
-			case 'Halfling' :
-				$('#racial_traits').html(halflingRacialTraits);
-				break;
-			case 'Human' :
-				$('#racial_traits').html(humanRacialTraits);
-				break;
-			case 'Dragonborn' :
-				$('#racial_traits').html(dragonbornRacialTraits);
-				break;
-			case 'Gnome' :
-				$('#racial_traits').html(gnomeRacialTraits);
-				break;
-			case 'Half-Orc' :
-				$('#racial_traits').html(halfofcRacialTraits);
-				break;
-			case 'Half-Elf' :
-				$('#racial_traits').html(halfelfRacialTraits);
-				break;
-			case 'Tiefling' :
-				$('#racial_traits').html(tieflingRacialTraits);
-				break;			
-		}
+		updateRacialTraitsFromRace(chosenRace);
 		
 	});
 });
+
+function updateRacialTraitsFromRace(chosenRace) {
+	switch (chosenRace) {
+		case 'Dwarf' :
+			$('#racial_traits').html(dwarfRacialTraits);
+			break;
+		case 'Elf' :
+			$('#racial_traits').html(elfRacialTraits);
+			break;
+		case 'Halfling' :
+			$('#racial_traits').html(halflingRacialTraits);
+			break;
+		case 'Human' :
+			$('#racial_traits').html(humanRacialTraits);
+			break;
+		case 'Dragonborn' :
+			$('#racial_traits').html(dragonbornRacialTraits);
+			break;
+		case 'Gnome' :
+			$('#racial_traits').html(gnomeRacialTraits);
+			break;
+		case 'Half-Orc' :
+			$('#racial_traits').html(halfofcRacialTraits);
+			break;
+		case 'Half-Elf' :
+			$('#racial_traits').html(halfelfRacialTraits);
+			break;
+		case 'Tiefling' :
+			$('#racial_traits').html(tieflingRacialTraits);
+			break;			
+	}
+}
 
 var dwarfRacialTraits = '<strong>Size:</strong> 4 to 5 feet tall; Medium<br />';
 dwarfRacialTraits += '<strong>Speed:</strong> 25 feet. Your speed is <em>not</em> reduced by wearing heavy armour with which you have proficiency<br />';
@@ -68,7 +72,7 @@ dragonbornRacialTraits += '<strong>Breath Weapon:</strong> You have a breath wea
 dragonbornRacialTraits += '<strong>Damage Resistance:</strong> You have natrual damage resistance. The exact damage type you are resistant to depends upon your draconic ancestry. Consult PHB for further details<br />';
 
 var gnomeRacialTraits = '<strong>Size:</strong> 3 to 4 feet tall; Small<br />';
-gnomeRacialTraits += '<strong>Speed:</strong> 25 feet. Your speed is <em>not</em> reduced by wearing heavy armour with which you have proficiency<br />';
+gnomeRacialTraits += '<strong>Speed:</strong> 25 feet.<br />';
 gnomeRacialTraits += "<strong>Dark Vision:</strong> Standard dark vision<br />";
 gnomeRacialTraits += "<strong>Gnome Cunning:</strong> You have advantage on all Intelligence, Wisdom and Charisma saving throws against magic<br />";
 
