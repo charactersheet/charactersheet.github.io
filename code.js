@@ -4,7 +4,7 @@ $(window).ready(function() {
 	recalculateAttributeModifiers();
 	updateRacialTraitsFromRace($('#race').val());
 	updateClassTraitsFromClass($('#class_and_level').val());
-	
+	populateSavedJsonField();
 	$('.attribute_value').on('change keyup', function() {
 		recalculateAttributeModifiers();
 	});
@@ -22,7 +22,44 @@ $(window).ready(function() {
 			saveCharacter();
 		}, 500);
 	});
+	
+	$('#saved_json').on('change keyup', function() {
+		loadCharacterFromSavedJsonTextarea();
+	});
+	
 });
+
+function updateSavedJsonField() {
+	var savedCharacterJson = localStorage.getItem('character');
+	if (savedCharacterJson != null) {		
+		var dataArray = JSON.parse(savedCharacterJson);
+		
+		$.each(dataArray, function(index, value) {			
+			$('#' + index).html(value);
+		});
+	}
+}
+
+function populateSavedJsonField() {
+	var savedJson = '';
+	var savedCharacterJson = localStorage.getItem('character');
+	var savedCharacterJsonCheckboxData = localStorage.getItem('checkboxData');
+	var savedCharacterJsonSelectData = localStorage.getItem('selectData');
+	
+	if (savedCharacterJson != null) {		
+		savedJson += savedCharacterJson;	
+	}
+	
+	if (savedCharacterJsonCheckboxData != null) {		
+		savedJson += '%%%' + savedCharacterJsonCheckboxData;		
+	}
+	
+	if (savedCharacterJsonSelectData != null) {		
+		savedJson += '%%%' + savedCharacterJsonSelectData;		
+	}
+	
+	$('#saved_json').val(savedJson);
+}
 
 function recalculateAttributeModifiers() {
 	var strMod = Math.floor(($('#attribute__str').html() - 10) / 2);
@@ -60,6 +97,8 @@ function recalculateAttributeModifiers() {
 }
 
 function saveCharacter() {
+	// keep a variable for use with the saved json field
+	var savedJson = '';
 	// save all the ".holds-content" fields
 	var characterData = {};	
 	$('.holds-content').each(function() {
@@ -70,7 +109,7 @@ function saveCharacter() {
 	});
 	var json = JSON.stringify(characterData);	
 	localStorage.setItem('character', json);
-	
+	savedJson += json;
 	// add all the checkbox values together
 	var checkboxData = {};
 	$('input[type="checkbox"]').each(function() {
@@ -85,7 +124,7 @@ function saveCharacter() {
 	});
 	json = JSON.stringify(checkboxData);	
 	localStorage.setItem('checkboxData', json);	
-	
+	savedJson += json;
 	// save the selects data
 	var selectData = {};
 	$('select').each(function() {
@@ -96,13 +135,50 @@ function saveCharacter() {
 		selectData[id] = value;
 	});
 	json = JSON.stringify(selectData);	
-	localStorage.setItem('selectData', json);	
+	localStorage.setItem('selectData', json);
+	savedJson += json;
+	$('#saved_json').val(savedJson);
 }
 
 function loadCharacter() {	
 	var savedCharacterJson = localStorage.getItem('character');
 	var savedCharacterJsonCheckboxData = localStorage.getItem('checkboxData');
 	var savedCharacterJsonSelectData = localStorage.getItem('selectData');
+	
+	if (savedCharacterJson != null) {		
+		var dataArray = JSON.parse(savedCharacterJson);
+		
+		$.each(dataArray, function(index, value) {			
+			$('#' + index).html(value);
+		});
+	}
+	
+	if (savedCharacterJsonCheckboxData != null) {		
+		var dataArray = JSON.parse(savedCharacterJsonCheckboxData);
+		
+		$.each(dataArray, function(index, value) {			
+			if (value == 1) {
+				$('#' + index).prop('checked', true);
+			}
+		});
+	}
+	
+	if (savedCharacterJsonSelectData != null) {		
+		var dataArray = JSON.parse(savedCharacterJsonSelectData);
+		
+		$.each(dataArray, function(index, value) {						
+			$('#' + index).val(value);
+		});
+	}
+}
+
+function loadCharacterFromSavedJsonTextarea() {
+	var savedJson = $('#saved_json').val();
+	
+	var chunks = savedJson.split('%%%');
+	var savedCharacterJson = chunks[0];
+	var savedCharacterJsonCheckboxData = chunks[1];
+	var savedCharacterJsonSelectData = chunks[2];
 	
 	if (savedCharacterJson != null) {		
 		var dataArray = JSON.parse(savedCharacterJson);

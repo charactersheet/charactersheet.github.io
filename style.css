@@ -369,3 +369,14 @@ select {
 select option {
   
 }
+
+#saved_json {  
+  border:1px solid #ccc;  
+  color:#aaa;  
+  overflow:scroll;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
