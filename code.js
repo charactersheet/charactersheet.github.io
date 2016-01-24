@@ -1,9 +1,9 @@
 $(window).ready(function() {
 	
-	loadCharacter();
-	recalculateAttributeModifiers();
 	updateRacialTraitsFromRace($('#race').val());
 	updateClassTraitsFromClass($('#class_and_level').val());
+	loadCharacter();
+	recalculateAttributeModifiers();
 	populateSavedJsonField();
 	$('.attribute_value').on('change keyup', function() {
 		recalculateAttributeModifiers();
