@@ -61,13 +61,13 @@ function populateSavedJsonField() {
 	$('#saved_json').val(savedJson);
 }
 
-function recalculateAttributeModifiers() {
-	var strMod = Math.floor(($('#attribute__str').html() - 10) / 2);
-	var dexMod = Math.floor(($('#attribute__dex').html() - 10) / 2);
-	var conMod = Math.floor(($('#attribute__con').html() - 10) / 2);
-	var intMod = Math.floor(($('#attribute__int').html() - 10) / 2);
-	var wisMod = Math.floor(($('#attribute__wis').html() - 10) / 2);
-	var chaMod = Math.floor(($('#attribute__cha').html() - 10) / 2);
+function recalculateAttributeModifiers() {		
+	var strMod = Math.floor((parseInt($('#attribute__str').html()) - 10) / 2);
+	var dexMod = Math.floor((parseInt($('#attribute__dex').html()) - 10) / 2);
+	var conMod = Math.floor((parseInt($('#attribute__con').html()) - 10) / 2);
+	var intMod = Math.floor((parseInt($('#attribute__int').html()) - 10) / 2);
+	var wisMod = Math.floor((parseInt($('#attribute__wis').html()) - 10) / 2);
+	var chaMod = Math.floor((parseInt($('#attribute__cha').html()) - 10) / 2);
 	
 	if (strMod > 0) {
 		strMod = '+' + strMod;
@@ -87,6 +87,7 @@ function recalculateAttributeModifiers() {
 	if (chaMod > 0) {
 		chaMod = '+' + chaMod;
 	}
+	
 		
 	$('#attribute-mod-value__str').html(strMod);
 	$('#attribute-mod-value__dex').html(dexMod);
